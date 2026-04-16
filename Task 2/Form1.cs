@@ -1,0 +1,95 @@
+using System.Net.Http.Headers;
+using System.Windows.Forms.Design;
+using static Task_2.Form1;
+
+namespace Task_2
+{
+
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+     
+
+        public class Book
+        {
+            public string Title { get; set; } = string.Empty;
+            public string Author { get; set; } = string.Empty;
+
+            // Add constructor to fix CS1729
+            public Book(string title, string author)
+            {
+                Title = title;
+                Author = author;
+            }
+
+            public virtual string GetDescription()
+            {
+                return $"Standard Book: {Title} by {Author}";
+            }
+        }
+
+        public class Magazine : Book
+        {
+            public int IssueNumber { get; set; }
+            // Update constructor to pass both title and author
+            public Magazine(string title, int issue) : base(title, "Unknown")
+            {
+                IssueNumber = issue;
+            }
+            public override string GetDescription()
+            {
+                return $"Magazine: {Title} (Issue #{IssueNumber})";
+            }
+        }
+
+        public class EBook : Book
+        {
+            public double FileSizeMB { get; set; }
+
+            public EBook(string title, string author, double fileSizeMB) : base(title, author)
+            {
+                FileSizeMB = fileSizeMB;
+            }
+
+
+            public override string GetDescription()
+            {
+                return $"Ebook: {Title} [{FileSizeMB}MB]";
+            }
+        }
+
+        public void ProccessBook(Book[] BookInventory, ListBox lbBooks)
+        {
+            lbBooks.Items.Clear();
+
+            if (BookInventory == null)
+            {
+                lbBooks.Items.Add("No Books Available");
+                return;
+            }
+
+            foreach (var book in BookInventory)
+            {
+                string info = book.GetDescription();
+
+                lbBooks.Items.Add(info);
+            }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            Book[] myBooks = new Book[]
+            {
+                new Book("The Great Gatsby", "F.Scott Fitzgerald"),
+                new Magazine("Vogue", 45),
+                new EBook("Digital Minimalism","Cal Newport", 1.5)
+            };
+
+            ProccessBook(myBooks, lbBooks);
+        }
+    }
+}
