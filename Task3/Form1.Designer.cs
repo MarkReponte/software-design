@@ -28,12 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            btnProcess = new Button();
+            lbBooks = new ListBox();
+            SuspendLayout();
+            // 
+            // btnProcess
+            // 
+            btnProcess.Location = new Point(290, 349);
+            btnProcess.Name = "btnProcess";
+            btnProcess.Size = new Size(196, 32);
+            btnProcess.TabIndex = 3;
+            btnProcess.Text = "Process";
+            btnProcess.UseVisualStyleBackColor = true;
+            btnProcess.Click += btnAdd_Click;
+            // 
+            // lbBooks
+            // 
+            lbBooks.FormattingEnabled = true;
+            lbBooks.Location = new Point(186, 69);
+            lbBooks.Name = "lbBooks";
+            lbBooks.Size = new Size(429, 274);
+            lbBooks.TabIndex = 2;
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnProcess);
+            Controls.Add(lbBooks);
+            Name = "Form1";
             Text = "Form1";
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Button btnProcess;
+        private ListBox lbBooks;
     }
 }
