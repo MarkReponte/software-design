@@ -1,5 +1,6 @@
 namespace lab4
 {
+
     public partial class Form1 : Form
     {
         public Form1()
@@ -9,6 +10,8 @@ namespace lab4
 
         public class Book
         {
+
+            public Book() { }
             public string Title { get; set; } = string.Empty;
             public string Author { get; set; } = string.Empty;
 
@@ -27,6 +30,8 @@ namespace lab4
 
         public class Magazine : Book
         {
+
+            public Magazine() { }
             public int IssueNumber { get; set; }
 
             public Magazine(string title, int issue) : base(title, "Unknown")
