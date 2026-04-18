@@ -24,7 +24,7 @@ namespace lab4
 
             public virtual string GetDescription()
             {
-                return $"Standard Book: {Title} by {Author}";
+                return $"{Title} by {Author}";
             }
         }
 
@@ -40,12 +40,13 @@ namespace lab4
             }
             public override string GetDescription()
             {
-                return $"Magazine: {Title} (Issue #{IssueNumber})";
+                return $"{Title} - Issue {IssueNumber}";
             }
         }
 
         public class EBook : Book
         {
+            public EBook() { }
             public double FileSizeMB { get; set; }
 
             public EBook(string title, string author, double fileSizeMB) : base(title, author)
@@ -56,7 +57,7 @@ namespace lab4
 
             public override string GetDescription()
             {
-                return $"Ebook: {Title} [{FileSizeMB}MB]";
+                return $"{Title} (Ebook, {FileSizeMB}MB)";
             }
 
         }
