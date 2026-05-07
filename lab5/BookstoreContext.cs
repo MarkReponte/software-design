@@ -15,7 +15,7 @@ namespace lab5
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)MSSQLLocalDB; Database=BookstoreDB; Trusted Connection=True;");
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB; Database=BookstoreDB; Integrated Security=True; TrustServerCertificate=True;");
 
         }
     }
