@@ -8,4 +8,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Downloads\LAB5 (2)\LAB5\LAB5\Lab5.csproj" />
+  </ItemGroup>
+
 </Project>
