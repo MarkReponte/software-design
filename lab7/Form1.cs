@@ -6,5 +6,10 @@ namespace lab7
 		{
 			InitializeComponent();
 		}
+
+		private const int pageSize = 10;
+		private int currentPage = 1;
+
+		
 	}
 }
